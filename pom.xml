@@ -45,5 +45,12 @@
   		<artifactId>javax.servlet-api</artifactId>
   		<version>3.1.0</version>
   	</dependency>
+	  <dependency>
+    <groupId>com.newrelic.agent.java</groupId>
+    <artifactId>newrelic-java</artifactId>
+    <version>17.0.12.0</version> <!-- ✅ Compatible with Java 17 -->
+    <type>zip</type>
+    <scope>runtime</scope>
+</dependency>
   </dependencies>
 </project>
