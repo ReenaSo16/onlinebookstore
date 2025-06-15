@@ -1,14 +1,9 @@
-# Use lightweight OpenJDK base image
-FROM eclipse-temurin:17-jdk-alpine
+FROM openjdk:17-jdk-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy the JAR file
-COPY target/*.jar app.jar
+# Copy the WAR file
+COPY target/*.war app.war
 
-# Expose app port
-EXPOSE 8080
-
-# Run the JAR
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run using java -jar
+CMD ["java", "-jar", "app.war"]
