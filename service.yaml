@@ -8,4 +8,4 @@ spec:
     app: onlinebookstore
   ports:
   - port: 80
-    targetPort: 8086
+    targetPort: 8080
