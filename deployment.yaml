@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onlinebookstore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: onlinebookstore
+  template:
+    metadata:
+      labels:
+        app: onlinebookstore
+    spec:
+      containers:
+      - name: onlinebookstore
+        image: 235494794958.dkr.ecr.ap-south-1.amazonaws.com/onlinebook:latest
+        ports:
+        - containerPort: 8080
