@@ -1,9 +1,11 @@
-FROM openjdk:17-jdk-slim
+# Use official Tomcat image
+FROM tomcat:9.0-jdk17-temporal
 
-WORKDIR /app
+# Clean default apps (optional)
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy the WAR file
-COPY target/*.war app.war
+# Copy your WAR file into webapps
+COPY target/onlinebookstore-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/onlinebookstore.war
 
-# Run using java -jar
-CMD ["java", "-jar", "app.war"]
+# Tomcat will auto-deploy the WAR on startup
+EXPOSE 8080
